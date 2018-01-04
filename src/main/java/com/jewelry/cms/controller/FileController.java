@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.jewelry.cms.bean.entity.Response;
 import com.jewelry.cms.dao.CPictureRespository;
 import com.jewelry.cms.utils.ApiStatus;
+import com.jewelry.cms.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,10 +24,6 @@ public class FileController {
     @Autowired
     private CPictureRespository cPictureRespository;
 
-    private final String img_path = "/Users/godlikehzj/Documents/somework/jewelry-cms/web/img/";
-    private final String video_path = "/Users/godlikehzj/Documents/somework/jewelry-cms/web/video/";
-
-    private final String url = "http://120.27.15.2";
     @RequestMapping("/img/upload")
     @ResponseBody
     public JSONObject handleImgUpload(@RequestParam("file_data") MultipartFile file) {
@@ -39,7 +36,7 @@ public class FileController {
                 String[] temp = file.getOriginalFilename().split("\\.");
                 String filename = df.format(now) + new Random().nextInt(100) + "." + temp[1];
                 BufferedOutputStream out = new BufferedOutputStream(
-                        new FileOutputStream(new File(img_path + filename)));
+                        new FileOutputStream(new File(FileUtils.img_path + filename)));
                 out.write(file.getBytes());
                 out.flush();
                 out.close();
@@ -49,7 +46,7 @@ public class FileController {
                 jsonArray.add(jsonObject);
                 result.put("initialPreviewConfig", jsonArray);
                 JSONArray pre = new JSONArray();
-                pre.add(url + img_path + filename);
+                pre.add(FileUtils.img_url + filename);
                 result.put("initialPreview", pre);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -84,13 +81,13 @@ public class FileController {
                 String[] temp = file.getOriginalFilename().split("\\.");
                 String filename = df.format(now) + new Random().nextInt(100) + "." + temp[1];
                 BufferedOutputStream out = new BufferedOutputStream(
-                        new FileOutputStream(new File(img_path + filename)));
+                        new FileOutputStream(new File(FileUtils.img_path + filename)));
                 out.write(file.getBytes());
                 out.flush();
                 out.close();
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("errno", 0);
-                jsonArray.add(url + img_path + filename);
+                jsonArray.add(FileUtils.img_url + filename);
                 result.put("data", jsonArray);
             } catch (Exception e) {
                 e.printStackTrace();
