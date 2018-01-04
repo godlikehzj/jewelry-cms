@@ -116,4 +116,70 @@ public class CommodityController {
         }
         return response;
     }
+
+    @RequestMapping(value = "commodity/modify")
+    public String toModifyCommodity(Model model, Long commodityId){
+        Commodity commodity = commodityRepository.getCommodityById(commodityId);
+
+        model.addAttribute("commodity", commodity);
+
+        List<JewelryType> jewelryTypes = jewelryTypeRepository.findAllByStatus(1);
+
+        model.addAttribute("types", jewelryTypes);
+
+        List<BodyPart> bodyParts = bodyPartRepository.findAllByTypeIdAndStatus(commodity.getTypeId(), 1);
+
+        model.addAttribute("bodys", bodyParts);
+
+        List<JewelryMeterial> jewelryMeterials = jewelryMeterialRepository.findAllByTypeIdAndStatus(commodity.getTypeId(), 1);
+
+        model.addAttribute("meterials", jewelryMeterials);
+
+        List<CPicture> list_imgs = cPictureRespository.findAllByCommodityIdAndPositionType(commodityId, 0);
+        model.addAttribute("list_img", list_imgs);
+
+        List<CPicture> detail_imgs = cPictureRespository.findAllByCommodityIdAndPositionType(commodityId, 1);
+        model.addAttribute("detail_img", detail_imgs);
+
+        return "commodity/modify";
+    }
+
+    @RequestMapping(value = "commodity/doModify")
+    @ResponseBody
+    public Response modifyCommodity(Commodity commodity, String detail_img, String list_img){
+        Response response = new Response(ApiStatus.ok, ApiStatus.msg.get(ApiStatus.ok), null);;
+        try{
+            commodity.setModifyTime(new Timestamp(new Date().getTime()));
+            commodityRepository.save(commodity);
+            JSONArray details = JSONArray.parseArray(detail_img);
+            for(int i = 0;i<details.size(); i++){
+                String img = details.getString(0);
+                List<CPicture> pic = cPictureRespository.findAllByPicName(img);
+                if (pic == null || pic.size() == 0){
+                    CPicture cPicture = new CPicture();
+                    cPicture.setCommodityId(commodity.getId());
+                    cPicture.setPicName(img);
+                    cPicture.setPositionType(1);
+                    cPictureRespository.save(cPicture);
+                }
+            }
+
+            JSONArray lists = JSONArray.parseArray(list_img);
+            for(int i = 0;i<lists.size(); i++){
+                String img = lists.getString(0);
+                List<CPicture> pic = cPictureRespository.findAllByPicName(img);
+                if (pic == null || pic.size() == 0) {
+                    CPicture cPicture = new CPicture();
+                    cPicture.setCommodityId(commodity.getId());
+                    cPicture.setPicName(img);
+                    cPicture.setPositionType(0);
+                    cPictureRespository.save(cPicture);
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            response = new Response(ApiStatus.err, ApiStatus.msg.get(ApiStatus.err), null);
+        }
+        return response;
+    }
 }

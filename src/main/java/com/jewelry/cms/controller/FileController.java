@@ -3,7 +3,9 @@ package com.jewelry.cms.controller;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.jewelry.cms.bean.entity.Response;
+import com.jewelry.cms.dao.CPictureRespository;
 import com.jewelry.cms.utils.ApiStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +20,9 @@ import java.util.Random;
 
 @Controller
 public class FileController {
+    @Autowired
+    private CPictureRespository cPictureRespository;
+
     private final String img_path = "/Users/godlikehzj/Documents/somework/jewelry-cms/web/img/";
     private final String video_path = "/Users/godlikehzj/Documents/somework/jewelry-cms/web/video/";
 
@@ -58,6 +63,13 @@ public class FileController {
             result.put("error", "file not exist");
             return result;
         }
+    }
+
+    @RequestMapping("img/delete")
+    @ResponseBody
+    public JSONObject deleteImg(String imgName){
+        cPictureRespository.deleteByPicName(imgName);
+        return new JSONObject();
     }
 
     @RequestMapping("/rich/img/upload")

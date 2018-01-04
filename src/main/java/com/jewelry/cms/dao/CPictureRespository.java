@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface CPictureRespository extends JpaRepository<CPicture, Long> {
     List<CPicture> findAllByCommodityIdAndPositionType(long commodity_id, int position_type);
-
+    List<CPicture> findAllByPicName(String picName);
+    void deleteByPicName(String picName);
 }

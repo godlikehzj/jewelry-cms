@@ -210,11 +210,38 @@ var commodity ={
         getContent("commodity/add")
     },
 
+    toModify : function (commodityId) {
+        var param = {};
+        param.commodityId = commodityId;
+
+        getContent("commodity/modify", param)
+    },
+
     add : function (params) {
         if(window.confirm('你确定要添加吗？')){
             $.ajax({
                 type : "POST",
                 url : "commodity/doAdd",
+                data : params,
+                error : function() {
+                },
+                success : function(ret) {
+                    if (ret.code === 0){
+                        commodity.getList();
+                    }else{
+                        alert(ret.msg);
+                    }
+                }
+            });
+        }else{
+
+        }
+    },
+    modify : function (params) {
+        if(window.confirm('你确定要修改吗？')){
+            $.ajax({
+                type : "POST",
+                url : "commodity/doModify",
                 data : params,
                 error : function() {
                 },
