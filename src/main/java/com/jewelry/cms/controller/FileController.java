@@ -36,7 +36,7 @@ public class FileController {
                 String[] temp = file.getOriginalFilename().split("\\.");
                 String filename = df.format(now) + new Random().nextInt(100) + "." + temp[1];
                 BufferedOutputStream out = new BufferedOutputStream(
-                        new FileOutputStream(new File(FileUtils.img_path + filename)));
+                        new FileOutputStream(new File(FileUtils.upload_img_path + filename)));
                 out.write(file.getBytes());
                 out.flush();
                 out.close();
@@ -81,7 +81,7 @@ public class FileController {
                 String[] temp = file.getOriginalFilename().split("\\.");
                 String filename = df.format(now) + new Random().nextInt(100) + "." + temp[1];
                 BufferedOutputStream out = new BufferedOutputStream(
-                        new FileOutputStream(new File(FileUtils.img_path + filename)));
+                        new FileOutputStream(new File(FileUtils.upload_img_path + filename)));
                 out.write(file.getBytes());
                 out.flush();
                 out.close();
