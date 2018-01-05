@@ -232,13 +232,15 @@
     // });
     var detail_pre = [];
     var detail_cfg = [];
-    var cfg = {};
-    <c:forEach var = "img" items="${detail_img}">
+
+    <c:forEach var = "img" items="${detail_img}" varStatus="status">
         detail_pre.push("${img.picName}");
+        var cfg = {};
         cfg.caption = "${img.picName}";
         cfg.key = "${img.picName}";
         detail_cfg.push(cfg)
     </c:forEach>
+
     $("#detail-pic").fileinput({
         theme: 'explorer-fa',
         uploadUrl: 'img/upload',
@@ -255,9 +257,13 @@
     var list__cfg = [];
     <c:forEach var = "img" items="${list_img}">
         list_pre.push("${img.picName}");
+        var cfg = {};
         cfg.caption = "${img.picName}";
         cfg.key = "${img.picName}";
+        console.log(cfg)
         list__cfg.push(cfg);
+    console.log(list_pre)
+    console.log(list__cfg)
     </c:forEach>
     $("#list-pic").fileinput({
         theme: 'explorer-fa',

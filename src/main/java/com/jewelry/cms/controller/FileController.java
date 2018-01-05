@@ -65,8 +65,8 @@ public class FileController {
 
     @RequestMapping("img/delete")
     @ResponseBody
-    public JSONObject deleteImg(String imgName){
-        cPictureRespository.deleteByPicName(imgName);
+    public JSONObject deleteImg(String key){
+        cPictureRespository.deleteByPicName(key);
         return new JSONObject();
     }
 
