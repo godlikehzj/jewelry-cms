@@ -58,10 +58,10 @@
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-home"></i> 首页管理 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="index.html">banner</a></li>
-                                    <li><a href="index2.html">商品</a></li>
-                                    <li><a href="index3.html">关于我们</a></li>
-                                    <li><a href="index3.html">加入我们</a></li>
+                                    <li><a onclick="alert('coming soon')">banner</a></li>
+                                    <li><a onclick="alert('coming soon')">商品</a></li>
+                                    <li><a onclick="alert('coming soon')">关于我们</a></li>
+                                    <li><a onclick="alert('coming soon')">加入我们</a></li>
                                 </ul>
                             </li>
                             <li><a onclick="jtype.getDetails(0)"><i class="fa fa-bars"></i> 分类管理 </a>
@@ -69,19 +69,8 @@
                             <li><a onclick="commodity.getList()"><i class="fa  fa-shopping-cart"></i> 商品管理 </a>
                             </li>
                             <li><a><i class="fa fa-user"></i> 关于我们 <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="tables.html">Tables</a></li>
-                                    <li><a href="tables_dynamic.html">Table Dynamic</a></li>
-                                </ul>
                             </li>
                             <li><a><i class="fa fa-users"></i> 加入我们 <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="chartjs.html">Chart JS</a></li>
-                                    <li><a href="chartjs2.html">Chart JS2</a></li>
-                                    <li><a href="morisjs.html">Moris JS</a></li>
-                                    <li><a href="echarts.html">ECharts</a></li>
-                                    <li><a href="other_charts.html">Other Charts</a></li>
-                                </ul>
                             </li>
                         </ul>
                     </div>
