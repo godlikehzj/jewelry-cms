@@ -242,10 +242,10 @@
     </c:forEach>
 
     $("#detail-pic").fileinput({
-        theme: 'explorer-fa',
+        theme: 'fa',
         uploadUrl: 'img/upload',
         deleteUrl: "img/delete",
-        overwriteInitial: false,
+//        overwriteInitial: false,
         // showPreview: false,
         initialPreviewAsData: true,
         initialPreview : detail_pre,
@@ -266,10 +266,10 @@
     console.log(list__cfg)
     </c:forEach>
     $("#list-pic").fileinput({
-        theme: 'explorer-fa',
+        theme: 'fa',
         uploadUrl: 'img/upload',
         deleteUrl: "img/delete",
-        overwriteInitial: false,
+//        overwriteInitial: false,
         initialPreviewAsData: true,
         maxFileCount:1,
         initialPreview : list_pre,

@@ -44,11 +44,21 @@ public class FileController {
                 jsonObject.put("caption", FileUtils.img_path + filename);
                 jsonObject.put("key", FileUtils.img_path + filename);
                 jsonObject.put("size", file.getSize());
+//                jsonObject.put("width", "120px");
+//                jsonObject.put("url", "img/delete");
                 jsonArray.add(jsonObject);
                 result.put("initialPreviewConfig", jsonArray);
                 JSONArray pre = new JSONArray();
                 pre.add(FileUtils.img_url + filename);
                 result.put("initialPreview", pre);
+
+//                JSONArray tags = new JSONArray();
+//                JSONObject tag = new JSONObject();
+//                tag.put("{CUSTOM_TAG_NEW}","");
+//                tag.put("{CUSTOM_TAG_INIT}", "");
+//                tags.add(tag);
+//                result.put("initialPreviewThumbTags",tags);
+                result.put("error","");
             } catch (Exception e) {
                 e.printStackTrace();
                 result.put("error", "excption");
