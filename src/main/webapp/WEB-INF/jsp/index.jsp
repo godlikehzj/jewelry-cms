@@ -176,7 +176,7 @@
 
 <!-- Custom Theme Scripts -->
 <script src="vendors/custom/custom.min.js"></script>
-<script src="../../js/common.js"></script>
+<script src="js/common.js"></script>
 
 </body>
 </html>
