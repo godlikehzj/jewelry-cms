@@ -236,6 +236,7 @@
     <c:forEach var = "img" items="${detail_img}">
         detail_pre.push("${img.picName}");
         cfg.caption = "${img.picName}";
+        cfg.key = "${img.picName}";
         detail_cfg.push(cfg)
     </c:forEach>
     $("#detail-pic").fileinput({
@@ -255,6 +256,7 @@
     <c:forEach var = "img" items="${list_img}">
         list_pre.push("${img.picName}");
         cfg.caption = "${img.picName}";
+        cfg.key = "${img.picName}";
         list__cfg.push(cfg);
     </c:forEach>
     $("#list-pic").fileinput({

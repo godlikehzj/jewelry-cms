@@ -34,14 +34,15 @@ public class FileController {
                 DateFormat df =  new SimpleDateFormat("yyyyMMddHHmmss");
                 Date now = new Date();
                 String[] temp = file.getOriginalFilename().split("\\.");
-                String filename = df.format(now) + new Random().nextInt(100) + "." + temp[1];
+                String filename = df.format(now) + new Random().nextInt(100) + "." + temp[temp.length - 1];
                 BufferedOutputStream out = new BufferedOutputStream(
                         new FileOutputStream(new File(FileUtils.upload_img_path + filename)));
                 out.write(file.getBytes());
                 out.flush();
                 out.close();
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.put("caption", filename);
+                jsonObject.put("caption", FileUtils.img_path + filename);
+                jsonObject.put("key", FileUtils.img_path + filename);
                 jsonObject.put("size", file.getSize());
                 jsonArray.add(jsonObject);
                 result.put("initialPreviewConfig", jsonArray);
