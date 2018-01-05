@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <title></title>
+</head>
+<link href="../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="<%=path %>/Portal/assets/js/jquery-ui.js"></script>
+<link href="<%=path %>/Portal/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+
+
+
+<body>
+
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Bootstrap LOGO</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#"><span>导航项 1</span></a></li>
+            <li><a href="#"><span>导航项 2</span></a></li>
+            <li><a href="#"><span>导航项 3</span></a></li>
+            <li><a href="#"><span>导航项 4</span></a></li>
+        </ul>
+    </div>
+</nav>
+</body>
+
+<script >
+
+    $(function(){
+        $(".nav").sortable();
+    });
+
+</script >
+</html>
