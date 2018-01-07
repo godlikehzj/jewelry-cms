@@ -49,7 +49,7 @@
                                 <td>${commodity.bodyPart.name}</td>
                                 <td>${commodity.jewelryMeterial.name}</td>
                                 <td>${commodity.price/100}</td>
-                                <td><a href="javascript:void(0);" onclick="commodity.banner.toModify(${commodity.id})">修改</a></td>
+                                <td><a href="javascript:void(0);" onclick="commodity.toModify(${commodity.id})">修改</a></td>
                             </tr>
                         </c:forEach>
 
