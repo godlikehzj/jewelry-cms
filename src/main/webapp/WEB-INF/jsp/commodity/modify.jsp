@@ -90,7 +90,7 @@
                             <div class="col-md-3 col-sm-3 col-xs-12">
                                 <select class="select2_single form-control" tabindex="-1" id="body_select">
                                     <c:forEach var="body" items="${bodys}">
-                                        <option value="${body.id}">${body.name}</option>
+                                        <option value="${body.id}" <c:if test="${body.id == commodity.partId}">selected="selected"</c:if>>${body.name}</option>
                                     </c:forEach>
                                 </select>
                             </div>
@@ -100,7 +100,7 @@
                             <div class="col-md-3 col-sm-3 col-xs-12">
                                 <select class="select2_single form-control" tabindex="-1" id="m_select">
                                     <c:forEach var="meterial" items="${meterials}">
-                                        <option value="${meterial.id}">${meterial.name}</option>
+                                        <option value="${meterial.id}" <c:if test="${meterial.id == commodity.meterialId}">selected="selected"</c:if>>${meterial.name}</option>
                                     </c:forEach>
                                 </select>
                             </div>
@@ -269,7 +269,7 @@
         theme: 'fa',
         uploadUrl: 'img/upload',
         deleteUrl: "img/delete",
-        overwriteInitial: false,
+        overwriteInitial: true,
         initialPreviewAsData: true,
         maxFileCount:1,
         initialPreview : list_pre,

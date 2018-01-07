@@ -257,6 +257,182 @@ var commodity ={
 
         }
     }
+};
+
+var home = {
+
+    banner :{
+        orderList : function (params) {
+            $.ajax({
+                type : "POST",
+                url : "home/banner/order",
+                data : params,
+                error : function(ret) {
+                    alert(ret.msg);
+                },
+                success : function(ret) {
+                    home.banner.getList();
+                }
+            });
+        },
+        getList : function () {
+            getContent("home/banner/list")
+        },
+        add : function (params) {
+            if(window.confirm('你确定要添加吗？')){
+                $.ajax({
+                    type : "POST",
+                    url : "home/banner/doAdd",
+                    data : params,
+                    error : function() {
+                    },
+                    success : function(ret) {
+                        if (ret.code === 0){
+                            home.banner.getList();
+                        }else{
+                            alert(ret.msg);
+                        }
+                    }
+                });
+            }else{
+
+            }
+        },
+        toAdd : function () {
+            getContent("home/banner/toAdd");
+        },
+        toModify : function (id) {
+            var param = {};
+            param.bid = id;
+            getContent("home/banner/toModify", param);
+        },
+        modify : function (params) {
+            if(window.confirm('你确定要修改吗？')){
+                $.ajax({
+                    type : "POST",
+                    url : "home/banner/doModify",
+                    data : params,
+                    error : function() {
+                    },
+                    success : function(ret) {
+                        if (ret.code === 0){
+                            home.banner.getList();
+                        }else{
+                            alert(ret.msg);
+                        }
+                    }
+                });
+            }else{
+
+            }
+        },
+        delete : function (id) {
+            var param = {};
+            param.id = id;
+            if(window.confirm('你确定要删除吗？')){
+                $.ajax({
+                    type : "POST",
+                    url : "home/banner/delete",
+                    data : param,
+                    error : function() {
+                    },
+                    success : function(ret) {
+                        if (ret.code === 0){
+                            home.banner.getList();
+                        }else{
+                            alert(ret.msg);
+                        }
+                    }
+                });
+            }else{
+
+            }
+        }
+    },
+
+    page : {
+        // 0 商品， 1 关于我们 2加入我们
+        type : 0,
+        getList :function (type,line) {
+            var param = {};
+            if (type == null){
+                param.type = home.page.type;
+            }else{
+                param.type = type;
+                home.page.type = type;
+            }
+            param.line = line;
+
+            getContent("home/page/list", param);
+        },
+        toAdd:function () {
+            var param = {};
+            param.type = home.page.type;
+            getContent("home/page/toAdd", param);
+        },
+
+        add:function (param) {
+            if(window.confirm('你确定要添加吗？')){
+                $.ajax({
+                    type : "POST",
+                    url : "home/page/doAdd",
+                    data : param,
+                    error : function() {
+                    },
+                    success : function(ret) {
+                        if (ret.code === 0){
+                            home.page.getList(home.page.type);
+                        }else{
+                            alert(ret.msg);
+                        }
+                    }
+                });
+            }else{
+
+            }
+        },
+        toModify:function (id) {
+            var param = {};
+            param.pid = id;
+            getContent("home/page/toModify", param);
+        },
+        delete : function (id) {
+            var param = {};
+            param.id = id;
+            if(window.confirm('你确定要删除吗？')){
+                $.ajax({
+                    type : "POST",
+                    url : "home/page/delete",
+                    data : param,
+                    error : function() {
+                    },
+                    success : function(ret) {
+                        if (ret.code === 0){
+                            home.page.getList(home.page.type);
+                        }else{
+                            alert(ret.msg);
+                        }
+                    }
+                });
+            }else{
+
+            }
+        },
+        orderList : function (params) {
+            $.ajax({
+                type : "POST",
+                url : "home/page/order",
+                data : params,
+                error : function(ret) {
+                    alert(ret.msg);
+                },
+                success : function(ret) {
+                    home.page.getList(home.page.type);
+                }
+            });
+        },
+
+    }
 }
 
 

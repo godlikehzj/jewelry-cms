@@ -234,7 +234,7 @@
     // });
 
     $("#detail-pic").fileinput({
-        theme: 'explorer-fa',
+        theme: 'fa',
         uploadUrl: 'img/upload',
         deleteUrl: "img/delete",
         overwriteInitial: false,
@@ -246,7 +246,7 @@
 
 
     $("#list-pic").fileinput({
-        theme: 'explorer-fa',
+        theme: 'fa',
         uploadUrl: 'img/upload',
         deleteUrl: "img/delete",
         overwriteInitial: false,

@@ -58,10 +58,10 @@
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-home"></i> 首页管理 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a onclick="alert('coming soon')">banner</a></li>
-                                    <li><a onclick="alert('coming soon')">商品</a></li>
-                                    <li><a onclick="alert('coming soon')">关于我们</a></li>
-                                    <li><a onclick="alert('coming soon')">加入我们</a></li>
+                                    <li><a onclick="home.banner.getList()">banner</a></li>
+                                    <li><a onclick="home.page.getList(0)">商品</a></li>
+                                    <li><a onclick="home.page.getList(1)">关于我们</a></li>
+                                    <li><a onclick="home.page.getList(2)">加入我们</a></li>
                                 </ul>
                             </li>
                             <li><a onclick="jtype.getDetails(0)"><i class="fa fa-bars"></i> 分类管理 </a>

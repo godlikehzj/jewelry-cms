@@ -80,7 +80,7 @@ public class CommodityController {
             model.addAttribute("datas", jewelryMeterials);
         }
 
-        return "commodity/selectChange";
+        return "common/selectChange";
     }
 
 
