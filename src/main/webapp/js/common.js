@@ -393,8 +393,29 @@ var home = {
         },
         toModify:function (id) {
             var param = {};
-            param.pid = id;
+            param.id = id;
+            param.type = home.page.type;
             getContent("home/page/toModify", param);
+        },
+        modify : function (param) {
+            if(window.confirm('你确定要修改吗？')){
+                $.ajax({
+                    type : "POST",
+                    url : "home/page/doModify",
+                    data : param,
+                    error : function() {
+                    },
+                    success : function(ret) {
+                        if (ret.code === 0){
+                            home.page.getList(home.page.type);
+                        }else{
+                            alert(ret.msg);
+                        }
+                    }
+                });
+            }else{
+
+            }
         },
         delete : function (id) {
             var param = {};
@@ -430,8 +451,112 @@ var home = {
                     home.page.getList(home.page.type);
                 }
             });
-        },
+        }
+    }
+};
 
+var joinus = {
+    detail : function () {
+        getContent("joinus/detail");
+    },
+    toModify :function () {
+        getContent("joinus/toModify");
+    },
+    modify :function (param) {
+        if(window.confirm('你确定要修改吗？')){
+            $.ajax({
+                type : "POST",
+                url : "joinus/doModify",
+                data : param,
+                error : function() {
+                },
+                success : function(ret) {
+                    if (ret.code === 0){
+                        joinus.detail();
+                    }else{
+                        alert(ret.msg);
+                    }
+                }
+            });
+        }else{
+
+        }
+    }
+};
+
+var about_us = {
+    cur_id : 0,
+    detail : function () {
+        getContent("aboutUs/detail");
+    },
+    toAdd : function () {
+        getContent("aboutUs/toAdd");
+    },
+    add : function (param) {
+        if(window.confirm('你确定要添加吗？')){
+            $.ajax({
+                type : "POST",
+                url : "aboutUs/doAdd",
+                data : param,
+                error : function() {
+                },
+                success : function(ret) {
+                    if (ret.code === 0){
+                        about_us.detail();
+                    }else{
+                        alert(ret.msg);
+                    }
+                }
+            });
+        }else{
+
+        }
+    },
+    toModify : function (id) {
+        var param = {};
+        param.id =id;
+        getContent("aboutUs/toModify", param);
+    },
+    modify : function (params) {
+
+        if(window.confirm('你确定要修改吗？')){
+            $.ajax({
+                type : "POST",
+                url : "aboutUs/doModify",
+                data : params,
+                error : function() {
+                },
+                success : function(ret) {
+                    if (ret.code === 0){
+                        about_us.detail();
+                    }else{
+                        alert(ret.msg);
+                    }
+                }
+            });
+        }else{
+
+        }
+    },
+    delete : function (id) {
+        if(window.confirm('你确定要修改吗？')){
+            $.ajax({
+                type : "POST",
+                url : "aboutUs/delete",
+                data : {"id":id},
+                error : function() {
+                },
+                success : function(ret) {
+                    if (ret.code === 0){
+                        about_us.detail();
+                    }else{
+                        alert(ret.msg);
+                    }
+                }
+            });
+        }else{
+
+        }
     }
 }
 

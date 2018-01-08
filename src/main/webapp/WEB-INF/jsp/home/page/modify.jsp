@@ -26,51 +26,90 @@
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                         <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">选择行数</label>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <input type="text" id="line" required="required" readonly="readonly" value="${homepage.lineOrder - type * 1000}" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">行内顺序</label>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <input type="text" id="index" required="required" readonly="readonly" value="${homepage.indexOrder}" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="width">宽度<span class="required">*</span>
+                            </label>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <input type="text" id="width" required="required" value="${homepage.widthNum}" class="form-control col-md-7 col-xs-12">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">选择类型</label>
                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                <select class="select2_single form-control" tabindex="-1" id="type_select">
-                                    <option value="1" <c:if test="${1 == page.cType}">selected="selected"</c:if>>文字</option>
-                                    <option value="2" <c:if test="${2 == page.cType}">selected="selected"</c:if>>图片</option>
-                                    <option value="3" <c:if test="${3 == page.cType}">selected="selected"</c:if>>视频</option>
+                                <select class="select2_single form-control" tabindex="-1" id="ctype">
+                                    <option value=1 <c:if test="${1 == homepage.cType}">selected="selected"</c:if>>文字</option>
+                                    <option value=2 <c:if test="${2 == homepage.cType}">selected="selected"</c:if>>图片</option>
+                                    <option value=3 <c:if test="${3 == homepage.cType}">selected="selected"</c:if>>视频</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">选择行数</label>
+
+                        <div class="form-group img_type none">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">跳转商品类型</label>
+                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                <select class="select2_single form-control" tabindex="-1" id="type_select">
+                                    <c:forEach var="type" items="${types}">
+                                        <option value="${type.id}" <c:if test="${type.id == typeId}">selected="selected"</c:if>>${type.name}</option>
+                                    </c:forEach>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group img_type none">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">跳转商品部位</label>
                             <div class="col-md-3 col-sm-3 col-xs-12">
                                 <select class="select2_single form-control" tabindex="-1" id="body_select">
                                     <c:forEach var="body" items="${bodys}">
-                                        <option value="${body.id}" <c:if test="${bodyId == body.id}">selected="selected"</c:if>>${body.name}</option>
+                                        <option value="${body.id}" <c:if test="${body.id == bodyId}">selected="selected"</c:if>>${body.name}</option>
                                     </c:forEach>
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">选择商品</label>
+                        <div class="form-group img_type none">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">跳转商品</label>
                             <div class="col-md-3 col-sm-3 col-xs-12">
                                 <select class="select2_single form-control" tabindex="-1" id="c_select">
                                     <option value="0">--</option>
                                     <c:forEach var="commodity" items="${commodities}">
-                                        <option value="${commodity.id}" <c:if test="${commodity.id == banner.goId}">selected="selected"</c:if>>${commodity.title}</option>
+                                        <option value="${commodity.id}" <c:if test="${commodity.id == homepage.goId}">selected="selected"</c:if>>${commodity.title}</option>
                                     </c:forEach>
                                 </select>
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12">顺序</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="pindex" readonly="readonly" value="${banner.pindex}" class="form-control col-md-7 col-xs-12">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="banner-pic" class="control-label col-md-3 col-sm-3 col-xs-12">图片</label>
+                        <div class="form-group img_type video_type none">
+                            <label for="page-file" class="control-label col-md-3 col-sm-3 col-xs-12" id="content_label">图片</label>
                             <!--<div class="file-loading col-md-6 col-sm-6 col-xs-12">-->
                             <!--<input id="input-24" name="input24[]" type="file" multiple>-->
                             <!--</div>-->
                             <div class=" col-md-6 col-sm-6 col-xs-12">
-                                <input id="banner-pic" type="file" multiple>
+                                <input id="page-file" type="file" multiple>
+                            </div>
+                        </div>
+
+                        <div class="form-group text_type">
+                            <label for="editor" class="control-label col-md-3 col-sm-3 col-xs-12">文字描述:</label>
+                            <div id="editor" class="col-md-8 col-sm-8 col-xs-12">
+                            </div>
+                        </div>
+
+                        <div class="form-group text_type">
+                            <label for="editor" class="control-label col-md-3 col-sm-3 col-xs-12">文字描述(英文):</label>
+                            <div id="en_editor" class="col-md-8 col-sm-8 col-xs-12">
                             </div>
                         </div>
 
@@ -78,8 +117,8 @@
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button type="button" onclick="home.banner.getList()" class="btn btn-primary">Cancel</button>
-                                <button type="button" onclick="submitBanner()" class="btn btn-success">Submit</button>
+                                <button type="button" onclick="home.page.getList(home.page.type)" class="btn btn-round btn-primary">Cancel</button>
+                                <button type="button" onclick="submitPage()" class="btn btn-round btn-success">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -152,35 +191,89 @@
         });
     });
 
+    $("#ctype").on('change', function () {
+        var type = $(this).find('option:selected').val();
+        if (type === "1"){
+            $(".text_type").removeClass("none");
+            $(".img_type").addClass("none");
+            $(".video_type").addClass("none");
+        }else if (type === "2"){
+            $(".text_type").addClass("none");
+            $(".video_type").addClass("none");
+            $(".img_type").removeClass("none");
+            $("#content_label").html("图片")
+        }else{
+            $(".text_type").addClass("none");
+            $(".img_type").addClass("none");
+            $(".video_type").removeClass("none");
+            $("#content_label").html("视频")
+        }
+    });
 
-    var banner_pre = [];
-    var banner_cfg = [];
+    var E = window.wangEditor;
+    var editor = new E('#editor');
+    // editor.customConfig.uploadImgServer = '/rich/img/upload'
+    editor.create();
 
-    banner_pre.push("${banner.imgUrl}");
-    var cfg = {};
-    cfg.caption = "${banner.imgUrl}";
-    cfg.key = "${banner.imgUrl}";
-    banner_cfg.push(cfg)
+    var E2 = window.wangEditor;
+    var en_editor = new E2('#en_editor');
+    // en_editor.customConfig.uploadImgServer = '/rich/img/upload'
+    en_editor.create();
 
-    $("#banner-pic").fileinput({
+    var page_pre = [];
+    var page_cfg = [];
+
+    if (${homepage.cType == 1}){
+        $(".text_type").removeClass("none");
+        $(".img_type").addClass("none");
+        $(".video_type").addClass("none");
+        editor.txt.html('${homepage.content}');
+        en_editor.txt.html('${homepage.enContent}');
+    }else if(${homepage.cType == 2}){
+        $(".text_type").addClass("none");
+        $(".video_type").addClass("none");
+        $(".img_type").removeClass("none");
+        $("#content_label").html("图片");
+        page_pre.push("${homepage.content}");
+        var cfg = {};
+        cfg.caption = "${homepage.content}";
+        cfg.key = "${homepage.content}";
+        page_cfg.push(cfg)
+    }else{
+        $(".text_type").addClass("none");
+        $(".img_type").addClass("none");
+        $(".video_type").removeClass("none");
+        $("#content_label").html("视频");
+        page_pre.push("${homepage.content}");
+        var cfg = {};
+        cfg.caption = "${homepage.content}";
+        cfg.key = "${homepage.content}";
+        page_cfg.push(cfg)
+    }
+
+
+    $("#page-file").fileinput({
         theme: 'fa',
         uploadUrl: 'img/upload',
         deleteUrl: "img/delete",
         overwriteInitial: true,
         maxFileCount:1,
+        showUpload:true,
         // showPreview: false,
         initialPreviewAsData: true,
-        initialPreview : banner_pre,
-        initialPreviewConfig:banner_cfg
+        initialPreview : page_pre,
+        initialPreviewConfig:page_cfg,
+        maxFileSize: 10000000
     });
 
 
-    function submitBanner(){
-        console.debug($("#list-pic").fileinput("getPreview"))
-        // console.debug($("#list-pic").fileinput("getPreview").config[0].caption)
+    function submitPage(){
         var param = {};
 
-        param.id = ${banner.id};
+        param.id = ${homepage.id};
+        param.lineOrder = $("#line").val();
+        param.indexOrder = $("#index").val();
+        param.cType = $('#ctype').find('option:selected').val();
         var partId = $('#body_select').find('option:selected').val();
         var cId = $('#c_select').find('option:selected').val();
         if (cId === "0")
@@ -188,13 +281,24 @@
         else
             param.goId = cId;
 
-        var img = "";
-        for(var i = 0; i < $("#banner-pic").fileinput("getPreview").config.length && i < 1; i ++){
-            img = $("#banner-pic").fileinput("getPreview").config[i].caption;
-        }
-        param.imgUrl = img;
+        if (param.cType === "1"){
+            //文字
+            param.content = editor.txt.html();
+            param.enContent = en_editor.txt.html();
+        }else {
+            //图片 视频
+            var file = "";
+            for(var i = 0; i < $("#page-file").fileinput("getPreview").config.length && i < 1; i ++){
+                file = $("#page-file").fileinput("getPreview").config[i].caption;
+            }
 
-        param.pindex = $('#pindex').val();
-        home.banner.modify(param);
+            param.content = file;
+            param.enContent = file;
+        }
+
+        param.widthNum =$('#width').val();
+
+        console.log(param);
+        home.page.modify(param);
     }
 </script>

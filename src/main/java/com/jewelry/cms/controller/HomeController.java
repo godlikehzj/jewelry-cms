@@ -273,7 +273,8 @@ public class HomeController {
         }
 
         return response;
-    };
+    }
+
     @RequestMapping("page/order")
     @ResponseBody
     public Response orderPage(String order){
@@ -291,4 +292,67 @@ public class HomeController {
         return response;
     }
 
+    @RequestMapping("page/toModify")
+    public String toModifyPage(Model model, int type, Long id){
+        HomePage homePage = homePageRepository.findOne(id);
+        Long goId = homePage.getGoId();
+
+        model.addAttribute("homepage",homePage);
+
+        List<JewelryType> jewelryTypes = jewelryTypeRepository.findAllByStatus(1);
+
+        model.addAttribute("types", jewelryTypes);
+
+        Long typeId;
+        Long bodyId;
+
+        if (homePage.getcType() == 2){
+            Commodity commodity = commodityRepository.getCommodityById(goId);
+            if (commodity == null){
+                bodyId = goId;
+                typeId = bodyId/100 * 100;
+            }else{
+                bodyId = commodity.getPartId();
+                typeId = commodity.getTypeId();
+            }
+        }else{
+            bodyId = 0L;
+            typeId = jewelryTypes.get(0).getId();
+        }
+
+        List<BodyPart> bodyParts = bodyPartRepository.findAllByTypeIdAndStatus(typeId, 1);
+
+        model.addAttribute("bodys", bodyParts);
+
+        if (homePage.getcType() != 2){
+            bodyId = bodyParts.get(0).getId();
+        }
+        List<Commodity> commodities = commodityRepository.findAllByPartId(bodyId, null);
+        model.addAttribute("commodities", commodities);
+
+        model.addAttribute("bodyId", bodyId);
+
+        model.addAttribute("typeId", typeId);
+
+
+
+        model.addAttribute("type", type);
+
+        return "home/page/modify";
+    }
+
+    @RequestMapping("page/doModify")
+    @ResponseBody
+    public Response modifyPage(HomePage homePage){
+        Response response = new Response(ApiStatus.ok, ApiStatus.msg.get(ApiStatus.ok), null);
+        try {
+            homePageRepository.save(homePage);
+        }catch (Exception e){
+            e.printStackTrace();
+            response = new Response(ApiStatus.err, ApiStatus.msg.get(ApiStatus.err), null);
+
+        }
+
+        return response;
+    }
 }

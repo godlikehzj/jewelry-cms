@@ -13,7 +13,7 @@
                 <c:when test="${type == 1}">首页->关于我们</c:when>
                 <c:when test="${type == 2}">首页->加入我们</c:when>
             </c:choose></h3>
-            <button type="button" class="btn btn-success createbtn" onclick="home.page.toAdd()">创建</button>
+
         </div>
 
     </div>
@@ -50,7 +50,7 @@
             <div class="x_panel">
                 <div class="x_title">
                     <h2>内容列表</h2>
-
+                    <button type="button" class="btn btn-round btn-success" onclick="home.page.toAdd()">创建</button>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">

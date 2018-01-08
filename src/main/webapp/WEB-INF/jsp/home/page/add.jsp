@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="width">宽度<span class="required">*</span>
                             </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-md-3 col-sm-3s col-xs-12">
                                 <input type="text" id="width" required="required" placeholder="0-16数字，每行总和16" class="form-control col-md-7 col-xs-12">
                             </div>
                         </div>
@@ -117,8 +117,8 @@
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button type="button" onclick="home.page.getList(home.page.type)" class="btn btn-primary">Cancel</button>
-                                <button type="button" onclick="submitPage()" class="btn btn-success">Submit</button>
+                                <button type="button" onclick="home.page.getList(home.page.type)" class="btn btn-round btn-primary">Cancel</button>
+                                <button type="button" onclick="submitPage()" class="btn btn-round btn-success">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -243,13 +243,8 @@
 
         param.lineOrder = parseInt($('#line').find('option:selected').val());
         param.cType = $('#ctype').find('option:selected').val();
-        var partId = $('#body_select').find('option:selected').val();
-        var cId = $('#c_select').find('option:selected').val();
-        if (cId === "0")
-            param.goId = partId;
-        else
-            param.goId = cId;
 
+        param.goId = 0;
         if (param.cType === "1"){
             //文字
             param.content = editor.txt.html();
@@ -263,6 +258,15 @@
 
             param.content = file;
             param.enContent = file;
+
+            if (param.cType === "2"){
+                var partId = $('#body_select').find('option:selected').val();
+                var cId = $('#c_select').find('option:selected').val();
+                if (cId === "0")
+                    param.goId = partId;
+                else
+                    param.goId = cId;
+            }
         }
 
         param.widthNum =$('#width').val();

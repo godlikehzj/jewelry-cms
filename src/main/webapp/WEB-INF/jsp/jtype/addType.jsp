@@ -55,8 +55,8 @@
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button type="button" class="btn btn-success" onclick="addType()">添加</button>
-                                <button type="button" class="btn btn-primary" onclick="jtype.getDetails(0)">取消</button>
+                                <button type="button" class="btn btn-round btn-success" onclick="addType()">添加</button>
+                                <button type="button" class="btn btn-round btn-primary" onclick="jtype.getDetails(0)">取消</button>
                             </div>
                         </div>
                     </form>

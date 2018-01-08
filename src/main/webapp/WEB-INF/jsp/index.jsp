@@ -58,19 +58,19 @@
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-home"></i> 首页管理 <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a onclick="home.banner.getList()">banner</a></li>
-                                    <li><a onclick="home.page.getList(0)">商品</a></li>
-                                    <li><a onclick="home.page.getList(1)">关于我们</a></li>
-                                    <li><a onclick="home.page.getList(2)">加入我们</a></li>
+                                    <li><a href="#" onclick="home.banner.getList()">banner</a></li>
+                                    <li><a href="#" onclick="home.page.getList(0)">商品</a></li>
+                                    <li><a href="#" onclick="home.page.getList(1)">关于我们</a></li>
+                                    <li><a href="#" onclick="home.page.getList(2)">加入我们</a></li>
                                 </ul>
                             </li>
-                            <li><a onclick="jtype.getDetails(0)"><i class="fa fa-bars"></i> 分类管理 </a>
+                            <li><a href="#" onclick="jtype.getDetails(0)"><i class="fa fa-bars"></i> 分类管理 </a>
                             </li>
-                            <li><a onclick="commodity.getList()"><i class="fa  fa-shopping-cart"></i> 商品管理 </a>
+                            <li><a href="#" onclick="commodity.getList()"><i class="fa  fa-shopping-cart"></i> 商品管理 </a>
                             </li>
-                            <li><a><i class="fa fa-user"></i> 关于我们 <span class="fa fa-chevron-down"></span></a>
+                            <li><a href="#" onclick="about_us.detail()"><i class="fa fa-user"></i> 关于我们 </a>
                             </li>
-                            <li><a><i class="fa fa-users"></i> 加入我们 <span class="fa fa-chevron-down"></span></a>
+                            <li><a href="#" onclick="joinus.detail()"><i class="fa fa-users"></i> 加入我们 </a>
                             </li>
                         </ul>
                     </div>

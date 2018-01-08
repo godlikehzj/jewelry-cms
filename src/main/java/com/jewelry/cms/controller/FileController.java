@@ -83,22 +83,21 @@ public class FileController {
 
     @RequestMapping("/rich/img/upload")
     @ResponseBody
-    public JSONObject handleRichImgUpload(@RequestParam("file_data") MultipartFile file) {
+    public JSONObject handleRichImgUpload(MultipartFile editorUploadFileName) {
         JSONObject result = new JSONObject();
         JSONArray jsonArray = new JSONArray();
-        if (!file.isEmpty()) {
+        if (!editorUploadFileName.isEmpty()) {
             try {
                 DateFormat df =  new SimpleDateFormat("yyyyMMddHHmmss");
                 Date now = new Date();
-                String[] temp = file.getOriginalFilename().split("\\.");
-                String filename = df.format(now) + new Random().nextInt(100) + "." + temp[1];
+                String[] temp = editorUploadFileName.getOriginalFilename().split("\\.");
+                String filename = df.format(now) + new Random().nextInt(100) + "." +  temp[temp.length - 1];
                 BufferedOutputStream out = new BufferedOutputStream(
                         new FileOutputStream(new File(FileUtils.upload_img_path + filename)));
-                out.write(file.getBytes());
+                out.write(editorUploadFileName.getBytes());
                 out.flush();
                 out.close();
-                JSONObject jsonObject = new JSONObject();
-                jsonObject.put("errno", 0);
+                result.put("errno", 0);
                 jsonArray.add(FileUtils.img_url + filename);
                 result.put("data", jsonArray);
             } catch (Exception e) {
