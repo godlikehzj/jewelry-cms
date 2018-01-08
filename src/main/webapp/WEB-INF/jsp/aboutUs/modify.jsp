@@ -75,14 +75,14 @@
     editor.customConfig.uploadImgServer = '/rich/img/upload';
     editor.customConfig.uploadFileName = 'editorUploadFileName';
     editor.create();
-    editor.txt.html("${about.content}")
+    editor.txt.html('${about.content}');
 
     var E2 = window.wangEditor;
     var en_editor = new E2('#en_editor');
     en_editor.customConfig.uploadImgServer = '/rich/img/upload';
     en_editor.customConfig.uploadFileName = 'editorUploadFileName';
     en_editor.create();
-    en_editor.txt.html("${about.enContent}")
+    en_editor.txt.html('${about.enContent}');
 
     function submitAbout(){
 
