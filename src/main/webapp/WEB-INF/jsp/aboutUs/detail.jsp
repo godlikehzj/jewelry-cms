@@ -18,7 +18,7 @@
         <div class="col-md-3 col-sm-3 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>标签 <button type="button" class="btn btn-round btn-success" onclick="about_us.toAdd()">创建</button>
+                    <h2>标签 <button type="button" class="btn createbtn btn-success" onclick="about_us.toAdd()">创建</button>
                     </h2>
                     <div class="clearfix"></div>
                 </div>
@@ -49,8 +49,8 @@
             <div class="x_panel">
                 <div class="x_title">
                     <h2>内容列表</h2>
-                    <button type="button" class="btn btn-round btn-success" onclick="about_us.toModify($('.lineon').attr('id'))">修改</button>
-                    <button type="button" class="btn btn-round btn-warning" onclick="about_us.delete($('.lineon').attr('id'))">删除</button>
+                    <button type="button" class="btn createbtn btn-success" onclick="about_us.toModify($('.lineon').attr('id'))">修改</button>
+                    <button type="button" class="btn createbtn btn-warning" onclick="about_us.delete($('.lineon').attr('id'))">删除</button>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">

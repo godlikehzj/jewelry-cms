@@ -7,7 +7,7 @@
 <div class="">
     <div class="page-title">
         <div class="title_left">
-            <h3>加入我们 <button type="button" class="btn btn-round btn-success" onclick="joinus.toModify(${joinus.id})">修改</button></h3>
+            <h3>加入我们 <button type="button" class="btn createbtn btn-success" onclick="joinus.toModify(${joinus.id})">修改</button></h3>
 
         </div>
 

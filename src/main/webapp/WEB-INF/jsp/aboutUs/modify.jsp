@@ -53,8 +53,8 @@
                         <div class="ln_solid"></div>
                         <div class="form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <button type="button" onclick="about_us.detail()" class="btn btn-round btn-primary">Cancel</button>
-                                <button type="button" onclick="submitAbout()" class="btn btn-round btn-success">Submit</button>
+                                <button type="button" onclick="about_us.detail()" class="btn createbtn btn-primary">Cancel</button>
+                                <button type="button" onclick="submitAbout()" class="btn createbtn btn-success">Submit</button>
                             </div>
                         </div>
 

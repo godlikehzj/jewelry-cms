@@ -50,7 +50,7 @@
             <div class="x_panel">
                 <div class="x_title">
                     <h2>内容列表</h2>
-                    <button type="button" class="btn btn-round btn-success" onclick="home.page.toAdd()">创建</button>
+                    <button type="button" class="btn createbtn btn-success" onclick="home.page.toAdd()">创建</button>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">

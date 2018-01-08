@@ -18,7 +18,7 @@
             <div class="x_panel">
                 <div class="x_title">
                     <h2>banner列表</h2>
-                    <button type="button" class="btn btn-round btn-success" onclick="home.banner.toAdd()">创建</button>
+                    <button type="button" class="btn btn-success createbtn" onclick="home.banner.toAdd()">创建</button>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>

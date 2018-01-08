@@ -19,7 +19,7 @@
             <div class="x_panel">
                 <div class="x_title">
                     <h2>商品列表</h2>
-                    <button type="button" class="btn btn-round btn-success" onclick="commodity.toAdd()">创建</button>
+                    <button type="button" class="btn createbtn btn-success" onclick="commodity.toAdd()">创建</button>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
