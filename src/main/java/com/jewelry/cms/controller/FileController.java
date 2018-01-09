@@ -61,7 +61,7 @@ public class FileController {
                 result.put("error","");
             } catch (Exception e) {
                 e.printStackTrace();
-                result.put("error", "excption");
+                result.put("error", e.getMessage());
                 return result;
             }
 
