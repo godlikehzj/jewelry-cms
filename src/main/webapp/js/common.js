@@ -26,7 +26,7 @@ var user = {
             },
             success : function(ret) {
                 if (ret.code === 0){
-                    window.location.href = "/";
+                    window.location.href = "/cms";
                 }else{
                     alert(ret.msg);
                 }
@@ -43,7 +43,7 @@ var user = {
             },
             success : function(ret) {
                 if (ret.code === 0){
-                    window.location.href = "/";
+                    window.location.href = "/cms";
                 }else{
                     alert(ret.msg);
                 }
