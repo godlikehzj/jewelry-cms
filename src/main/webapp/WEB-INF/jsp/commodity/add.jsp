@@ -259,12 +259,14 @@
     var E = window.wangEditor;
     var editor = new E('#editor');
     editor.customConfig.uploadImgServer = rich_upload_url;
+    editor.customConfig.uploadFileName = 'editorUploadFileName';
     editor.create();
 
 
     var E2 = window.wangEditor;
     var en_editor = new E2('#en_editor');
-    en_editor.customConfig.uploadImgServer = rich_upload_url
+    en_editor.customConfig.uploadImgServer = rich_upload_url;
+    editor.customConfig.uploadFileName = 'editorUploadFileName';
     en_editor.create();
 
 
