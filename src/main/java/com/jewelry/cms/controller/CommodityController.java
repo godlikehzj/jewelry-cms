@@ -182,4 +182,18 @@ public class CommodityController {
         }
         return response;
     }
+
+    @RequestMapping(value = "commodity/delete")
+    @ResponseBody
+    public Response delete(Long commodityId){
+        Response response = new Response(ApiStatus.ok, ApiStatus.msg.get(ApiStatus.ok), null);;
+        try{
+            commodityRepository.delete(commodityId);
+        }catch (Exception e){
+            e.printStackTrace();
+            response = new Response(ApiStatus.err, ApiStatus.msg.get(ApiStatus.err), e.getMessage());
+        }
+
+        return response;
+    }
 }

@@ -205,7 +205,28 @@ var commodity ={
         // param.typeId = typeId;
         getContent(url, param);
     },
+    delete : function (commodityId) {
+        var param = {};
+        param.commodityId = commodityId;
+        if(window.confirm('你确定要删除吗？')){
+            $.ajax({
+                type : "POST",
+                url : "commodity/delete",
+                data : param,
+                error : function() {
+                },
+                success : function(ret) {
+                    if (ret.code === 0){
+                        commodity.getList();
+                    }else{
+                        alert(ret.msg);
+                    }
+                }
+            });
+        }else{
 
+        }
+    },
     toAdd : function () {
         getContent("commodity/add")
     },
