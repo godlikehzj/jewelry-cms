@@ -50,7 +50,7 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">选择商品</label>
                             <div class="col-md-3 col-sm-3 col-xs-12">
                                 <select class="select2_single form-control" tabindex="-1" id="c_select">
-                                    <option value="0">--</option>
+                                    <option value="0">--(跳转列表页)</option>
                                     <c:forEach var="commodity" items="${commodities}">
                                         <option value="${commodity.id}" <c:if test="${commodity.id == banner.goId}">selected="selected"</c:if>>${commodity.title}</option>
                                     </c:forEach>
@@ -119,7 +119,7 @@
                     error : function() {
                     },
                     success : function(ret) {
-                        $('#c_select').html('<option value="0">--</option>' + ret);
+                        $('#c_select').html('<option value="0">--(跳转列表页)</option>' + ret);
                     }
                 });
             }
@@ -139,7 +139,7 @@
             error : function() {
             },
             success : function(ret) {
-                $('#c_select').html('<option value="0">--</option>' + ret);
+                $('#c_select').html('<option value="0">--(跳转列表页)</option>' + ret);
             }
         });
     });

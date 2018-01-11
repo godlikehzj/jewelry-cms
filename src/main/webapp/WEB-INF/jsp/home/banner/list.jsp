@@ -31,7 +31,7 @@
                     <table id="datatable" class="table table-hover">
                         <thead>
                         <tr>
-                            <th>顺序</th>
+                            <th>序号(拖动排序)</th>
                             <th>图片</th>
                             <th>商品Id</th>
                             <th>操作</th>
