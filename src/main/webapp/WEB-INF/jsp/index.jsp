@@ -113,7 +113,7 @@
         <!-- footer content -->
         <footer>
             <div class="pull-right">
-                yihu - Jewelry Admin System powerd by <a href="https://colorlib.com">godlikehzj</a>
+                yihu - Jewelry Admin System powerd by godlikehzj</a>
             </div>
             <div class="clearfix"></div>
         </footer>
