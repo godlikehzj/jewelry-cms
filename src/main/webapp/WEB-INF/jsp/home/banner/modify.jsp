@@ -156,8 +156,8 @@
 
     $("#banner-pic").fileinput({
         theme: 'fa',
-        uploadUrl: 'img/upload',
-        deleteUrl: "img/delete",
+        uploadUrl: img_upload_url,
+        deleteUrl: img_delete_url,
         overwriteInitial: true,
         maxFileCount:1,
         // showPreview: false,

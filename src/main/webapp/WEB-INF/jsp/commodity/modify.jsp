@@ -67,7 +67,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="price">价格<span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="price">价格(分)<span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <input type="text" id="price" name="price" required="required"  value="${commodity.price}" class="form-control col-md-7 col-xs-12">
@@ -216,8 +216,8 @@
 
     // $("#detail-pic").fileinput({
     //     theme: 'explorer-fa',
-    //     uploadUrl: 'img/upload',
-    //     deleteUrl: "img/delete",
+    //     uploadUrl: img_upload_url,
+    //     deleteUrl: img_delete_url,
     //     overwriteInitial: false,
     //     // showPreview: false,
     //     initialPreviewAsData: true,
@@ -243,8 +243,8 @@
 
     $("#detail-pic").fileinput({
         theme: 'fa',
-        uploadUrl: 'img/upload',
-        deleteUrl: "img/delete",
+        uploadUrl: img_upload_url,
+        deleteUrl: img_delete_url,
         overwriteInitial: false,
         // showPreview: false,
         initialPreviewAsData: true,
@@ -267,8 +267,8 @@
     </c:forEach>
     $("#list-pic").fileinput({
         theme: 'fa',
-        uploadUrl: 'img/upload',
-        deleteUrl: "img/delete",
+        uploadUrl:img_upload_url,
+        deleteUrl: img_delete_url,
         overwriteInitial: true,
         initialPreviewAsData: true,
         maxFileCount:1,
@@ -278,14 +278,14 @@
 
     var E = window.wangEditor;
     var editor = new E('#editor');
-    editor.customConfig.uploadImgServer = '/rich/img/upload'
+    editor.customConfig.uploadImgServer = rich_upload_url;
     editor.create();
     editor.txt.html('${commodity.body}');
 
 
     var E2 = window.wangEditor;
     var en_editor = new E2('#en_editor');
-    en_editor.customConfig.uploadImgServer = '/rich/img/upload'
+    en_editor.customConfig.uploadImgServer = rich_upload_url;
     en_editor.create();
     en_editor.txt.html('${commodity.enBody}');
 

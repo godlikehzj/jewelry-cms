@@ -140,8 +140,8 @@
 
     // $("#detail-pic").fileinput({
     //     theme: 'explorer-fa',
-    //     uploadUrl: 'img/upload',
-    //     deleteUrl: "img/delete",
+    //     uploadUrl: img_upload_url,
+    //     deleteUrl: img_delete_url,
     //     overwriteInitial: false,
     //     // showPreview: false,
     //     initialPreviewAsData: true,
@@ -157,8 +157,8 @@
 
     $("#banner-pic").fileinput({
         theme: 'fa',
-        uploadUrl: 'img/upload',
-        deleteUrl: "img/delete",
+        uploadUrl: img_upload_url,
+        deleteUrl: img_delete_url,
         overwriteInitial: true,
         // showPreview: false,
         initialPreviewAsData: true,
