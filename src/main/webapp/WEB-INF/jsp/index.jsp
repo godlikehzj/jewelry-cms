@@ -105,7 +105,7 @@
 
         <!-- page content -->
         <div class="right_col" role="main" id="content">
-
+            <h1 style="padding-top: 100px;text-align: center">欢迎使用</h1>
         </div>
 
         <!-- /page content -->
