@@ -15,6 +15,42 @@ function getContent(url, params){
 var rich_upload_url = "/cms/rich/img/upload";
 var img_upload_url = "img/upload";
 var img_delete_url = "img/delete";
+
+var user = {
+    login : function (params) {
+        $.ajax({
+            type : "POST",
+            url : "login",
+            data : params,
+            error : function() {
+            },
+            success : function(ret) {
+                if (ret.code === 0){
+                    window.location.href = "/";
+                }else{
+                    alert(ret.msg);
+                }
+            }
+        });
+    },
+
+    logout : function (params) {
+        $.ajax({
+            type : "POST",
+            url : "logout",
+            data : params,
+            error : function() {
+            },
+            success : function(ret) {
+                if (ret.code === 0){
+                    window.location.href = "/";
+                }else{
+                    alert(ret.msg);
+                }
+            }
+        });
+    }
+};
 var jtype = {
     getDetails : function (typeId) {
         var url = "jtype";
