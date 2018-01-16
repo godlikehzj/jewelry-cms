@@ -183,10 +183,10 @@
 <script src="vendors/bootstrap-fileinput-master/themes/fa/theme.js" type="text/javascript"></script>
 <script src="vendors/wangEditor-3.0.15/release/wangEditor.min.js" type="text/javascript"></script>
 <script src="vendors/iCheck/icheck.min.js"></script>
-<script src="vendors/custom/custom.min.js"></script>
+<%--<script src="vendors/custom/custom.min.js"></script>--%>
 <script>
 
-
+    initicheck();
     $("#type_select").on('change', function () {
         var typeId = $(this).find('option:selected').val();
 

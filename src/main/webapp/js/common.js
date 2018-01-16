@@ -12,6 +12,17 @@ function getContent(url, params){
     });
 }
 
+function initicheck() {
+    if ($("input.flat")[0]) {
+        $(document).ready(function () {
+            $('input.flat').iCheck({
+                checkboxClass: 'icheckbox_flat-green',
+                radioClass: 'iradio_flat-green'
+            });
+        });
+    }
+}
+
 var rich_upload_url = "/cms/rich/img/upload";
 var img_upload_url = "img/upload";
 var img_delete_url = "img/delete";

@@ -68,8 +68,9 @@
     </div>
 </div>
 <script src="vendors/iCheck/icheck.min.js"></script>
-<script src="vendors/custom/custom.min.js"></script>
+<%--<script src="vendors/custom/custom.min.js"></script>--%>
 <script>
+    initicheck();
     function modifyType() {
         var param = {};
         param.id = $('#type_id').val();

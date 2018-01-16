@@ -42,7 +42,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">是否上线</label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <div id="gender" class="btn-group" data-toggle="buttons">
+                                <div id="gender1" class="btn-group" data-toggle="buttons">
                                     <label class="btn" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
                                         上线:<input type="radio" class="flat" name="status" id="online" value="1" checked="checked"/>
                                     </label>
@@ -67,9 +67,10 @@
 </div>
 
 <script src="vendors/iCheck/icheck.min.js"></script>
-<script src="vendors/custom/custom.min.js"></script>
+<%--<script src="vendors/custom/custom.min.js"></script>--%>
 
 <script>
+    initicheck();
     function addType() {
         var param = {};
         param.name = $('#name').val();
