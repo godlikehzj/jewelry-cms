@@ -306,7 +306,7 @@ public class HomeController {
         Long typeId;
         Long bodyId;
 
-        if (homePage.getcType() == 2){
+        if (homePage.getcType() == 2 && goId != null){
             Commodity commodity = commodityRepository.getCommodityById(goId);
             if (commodity == null){
                 bodyId = goId;
