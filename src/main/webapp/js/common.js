@@ -12,6 +12,17 @@ function getContent(url, params){
     });
 }
 
+function initicheck() {
+    if ($("input.flat")[0]) {
+        $(document).ready(function () {
+            $('input.flat').iCheck({
+                checkboxClass: 'icheckbox_flat-green',
+                radioClass: 'iradio_flat-green'
+            });
+        });
+    }
+}
+
 var rich_upload_url = "/cms/rich/img/upload";
 var img_upload_url = "img/upload";
 var img_delete_url = "img/delete";
@@ -64,7 +75,7 @@ var jtype = {
             alert("请选定要修改行");
             return;
         }
-        var url = "/type/toModify";
+        var url = "type/toModify";
         var param = {} ;
         param.typeId = typeId;
         getContent(url, param);
@@ -123,7 +134,7 @@ var jtype = {
             alert("请选定要修改行");
             return;
         }
-        var url = "/part/toModify";
+        var url = "part/toModify";
         var param = {} ;
         param.partId = partId;
         getContent(url, param);
@@ -182,7 +193,7 @@ var jtype = {
             alert("请选定要修改行");
             return;
         }
-        var url = "/meterial/toModify";
+        var url = "meterial/toModify";
         var param = {} ;
         param.meterialId = meterialId;
         getContent(url, param);

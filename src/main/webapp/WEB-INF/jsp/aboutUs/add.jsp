@@ -81,9 +81,10 @@
 <script src="vendors/bootstrap-fileinput-master/themes/fa/theme.js" type="text/javascript"></script>
 <script src="vendors/wangEditor-3.0.15/release/wangEditor.min.js" type="text/javascript"></script>
 <script src="vendors/iCheck/icheck.min.js"></script>
-<script src="vendors/custom/custom.min.js"></script>
+<%--<script src="vendors/custom/custom.min.js"></script>--%>
 <script>
 
+    initicheck();
     var E = window.wangEditor;
     var editor = new E('#editor');
     editor.customConfig.uploadImgServer = rich_upload_url;

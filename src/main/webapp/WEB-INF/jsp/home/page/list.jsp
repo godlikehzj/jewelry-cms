@@ -49,7 +49,7 @@
         <div class="col-md-10 col-sm-10 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>内容列表</h2>
+                    <h2>内容列表(拖动排序)</h2>
                     <button type="button" class="btn createbtn btn-success" onclick="home.page.toAdd()">创建</button>
                     <div class="clearfix"></div>
                 </div>
@@ -57,12 +57,12 @@
                     <table id="datatable" class="table table-hover">
                         <thead>
                         <tr>
-                            <th>序号(拖动排序)</th>
-                            <th>宽度</th>
-                            <th>内容类型</th>
+                            <th class="col-md-1">序号</th>
+                            <th class="col-md-1">宽度</th>
+                            <th class="col-md-1">类型</th>
                             <th>内容</th>
-                            <th>跳转商品</th>
-                            <th>操作</th>
+                            <th class="col-md-1">跳转</th>
+                            <th class="col-md-2">操作</th>
                         </tr>
                         </thead>
                         <tbody>

@@ -67,7 +67,7 @@
 
 
 <script src="vendors/wangEditor-3.0.15/release/wangEditor.min.js" type="text/javascript"></script>
-<script src="vendors/custom/custom.min.js"></script>
+<%--<script src="vendors/custom/custom.min.js"></script>--%>
 <script>
 
     var E = window.wangEditor;

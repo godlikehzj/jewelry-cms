@@ -76,8 +76,9 @@
     </div>
 </div>
 <script src="vendors/iCheck/icheck.min.js"></script>
-<script src="vendors/custom/custom.min.js"></script>
+<%--<script src="vendors/custom/custom.min.js"></script>--%>
 <script>
+    initicheck();
     function modifyPart() {
         var param = {};
         param.id = $('#part_id').val();

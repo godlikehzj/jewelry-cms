@@ -87,7 +87,7 @@
 <script src="vendors/bootstrap-fileinput-master/js/plugins/sortable.min.js"></script>
 <script src="vendors/bootstrap-fileinput-master/themes/fa/theme.js" type="text/javascript"></script>
 <script src="vendors/wangEditor-3.0.15/release/wangEditor.min.js" type="text/javascript"></script>
-<script src="vendors/custom/custom.min.js"></script>
+<%--<script src="vendors/custom/custom.min.js"></script>--%>
 <script>
 
 

@@ -101,15 +101,19 @@
                             </div>
                         </div>
 
+                        <div id="heditor" class="none">${homepage.content}</div>
                         <div class="form-group text_type">
                             <label for="editor" class="control-label col-md-3 col-sm-3 col-xs-12">文字描述:</label>
                             <div id="editor" class="col-md-8 col-sm-8 col-xs-12">
+
                             </div>
                         </div>
 
+                        <div id="hen_editor" class="none">${homepage.enContent}</div>
                         <div class="form-group text_type">
-                            <label for="editor" class="control-label col-md-3 col-sm-3 col-xs-12">文字描述(英文):</label>
+                            <label for="en_editor" class="control-label col-md-3 col-sm-3 col-xs-12">文字描述(英文):</label>
                             <div id="en_editor" class="col-md-8 col-sm-8 col-xs-12">
+                                ${homepage.enContent}
                             </div>
                         </div>
 
@@ -132,7 +136,7 @@
 <script src="vendors/bootstrap-fileinput-master/js/plugins/sortable.min.js"></script>
 <script src="vendors/bootstrap-fileinput-master/themes/fa/theme.js" type="text/javascript"></script>
 <script src="vendors/wangEditor-3.0.15/release/wangEditor.min.js" type="text/javascript"></script>
-<script src="vendors/custom/custom.min.js"></script>
+<%--<script src="vendors/custom/custom.min.js"></script>--%>
 <script>
 
 
@@ -223,31 +227,34 @@
     var page_pre = [];
     var page_cfg = [];
 
+    var content = $("#heditor").html();
+    var enContent = $("#hen_editor").html();
     if (${homepage.cType == 1}){
         $(".text_type").removeClass("none");
         $(".img_type").addClass("none");
         $(".video_type").addClass("none");
-        editor.txt.html('${homepage.content}');
-        en_editor.txt.html('${homepage.enContent}');
+        editor.txt.html(content);
+        en_editor.txt.html(enContent);
     }else if(${homepage.cType == 2}){
+
         $(".text_type").addClass("none");
         $(".video_type").addClass("none");
         $(".img_type").removeClass("none");
         $("#content_label").html("图片");
-        page_pre.push("${homepage.content}");
+        page_pre.push(content);
         var cfg = {};
-        cfg.caption = "${homepage.content}";
-        cfg.key = "${homepage.content}";
+        cfg.caption = content;
+        cfg.key = content;
         page_cfg.push(cfg)
     }else{
         $(".text_type").addClass("none");
         $(".img_type").addClass("none");
         $(".video_type").removeClass("none");
         $("#content_label").html("视频");
-        page_pre.push("${homepage.content}");
+        page_pre.push(content);
         var cfg = {};
-        cfg.caption = "${homepage.content}";
-        cfg.key = "${homepage.content}";
+        cfg.caption = content;
+        cfg.key = content;
         page_cfg.push(cfg)
     }
 
