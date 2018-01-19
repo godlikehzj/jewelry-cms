@@ -181,18 +181,21 @@ public class HomeController {
         int end = (type+1) * 1000;
         List<Integer> lines = homePageRepository.findLineDistinctByLineOrderBetween(begin, end, new Sort(Sort.Direction.ASC, "lineOrder"));
 
+        if (lines.size() > 0){
+            if (line == null){
+//            line = lines.get(0).getLineOrder();
+                line = lines.get(0);
+            }else{
+                line  = line + type * 1000;
+            }
+        }
         model.addAttribute("lines", lines);
 
-        if (line == null){
-//            line = lines.get(0).getLineOrder();
-            line = lines.get(0);
-        }else{
-            line  = line + type * 1000;
-        }
-
         model.addAttribute("cline", line);
-        List<HomePage> homePages = homePageRepository.findAllByLineOrder(line, new Sort(Sort.Direction.ASC, "indexOrder"));
-
+        List<HomePage> homePages = new ArrayList<HomePage>();
+        if (line != null){
+            homePages = homePageRepository.findAllByLineOrder(line, new Sort(Sort.Direction.ASC, "indexOrder"));
+        }
         model.addAttribute("pages", homePages);
         model.addAttribute("type", type);
         return "home/page/list";
