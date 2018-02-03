@@ -278,7 +278,7 @@
         var param = {};
 
         param.id = ${homepage.id};
-        param.lineOrder = $("#line").val() + ${type} * 1000;
+        param.lineOrder = parseInt($("#line").val()) + parseInt(${type}) * 1000;
         param.indexOrder = $("#index").val();
         param.cType = $('#ctype').find('option:selected').val();
         var partId = $('#body_select').find('option:selected').val();
