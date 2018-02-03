@@ -95,6 +95,6 @@
         param.status = 1;
         console.log(param)
 
-        about_us.add(param);
+        about_us.modify(param);
     }
 </script>
