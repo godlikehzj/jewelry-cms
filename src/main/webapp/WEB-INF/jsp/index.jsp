@@ -105,18 +105,19 @@
 
         <!-- page content -->
         <div class="right_col" role="main" id="content">
-            <h1 style="padding-top: 100px;text-align: center">欢迎使用</h1>
+            <div style="font-size:40px;padding-top: 200px;text-align: center;width: 100%">欢迎使用</div>
+            <%--<h1><i>欢迎使用</i></h1>--%>
         </div>
-
-        <!-- /page content -->
-
-        <!-- footer content -->
         <footer>
             <div class="pull-right">
-                yihu - Jewelry Admin System powerd by godlikehzj</a>
+                yihu - Jewelry Admin System powerd by <a style="color: blue;" href="#" onclick="getContent('contact')">godlikehzj</a>
             </div>
             <div class="clearfix"></div>
         </footer>
+        <!-- /page content -->
+
+        <!-- footer content -->
+
         <!-- /footer content -->
     </div>
 </div>

@@ -62,6 +62,7 @@ var user = {
         });
     }
 };
+
 var jtype = {
     getDetails : function (typeId) {
         var url = "jtype";

@@ -15,6 +15,10 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
+    @RequestMapping(value = "contact")
+    public String contact(){
+        return "contact";
+    }
     @RequestMapping(value = "toLogin")
     public String tologin(){
         return "login";
