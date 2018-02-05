@@ -1,5 +1,6 @@
 
 function getContent(url, params){
+    loading();
     $.ajax({
         type : "POST",
         url : url,
@@ -12,6 +13,15 @@ function getContent(url, params){
     });
 }
 
+function loading() {
+    $('#content').html('<div class="circle" style="position: absolute;top:50%;transform: translateY(-50%);left:50%;">\n' +
+        '        <span class="ouro ouro3">\n' +
+        '        <span class="left"><span class="anim"></span></span>\n' +
+        '        <span class="right"><span class="anim"></span></span>\n' +
+        '        </span>\n' +
+        '        </div>');
+
+}
 function initicheck() {
     if ($("input.flat")[0]) {
         $(document).ready(function () {

@@ -18,7 +18,7 @@
     <!-- Font Awesome -->
     <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/common.css" rel="stylesheet">
-
+    <link href="css/style.css" rel="stylesheet">
     <!-- NProgress -->
     <%--<link href="vendors/nprogress/nprogress.css" rel="stylesheet">--%>
     <!-- iCheck -->
