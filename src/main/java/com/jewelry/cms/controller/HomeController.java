@@ -77,8 +77,10 @@ public class HomeController {
             List<Banner> bannerList = bannerRepository.findAll(sorter);
             if (bannerList.size() > 0){
                 banner.setPindex(bannerList.get(0).getPindex() + 1);
-                bannerRepository.save(banner);
+            }else{
+                banner.setPindex(1);
             }
+            bannerRepository.save(banner);
         }catch (Exception e){
             e.printStackTrace();
             response = new Response(ApiStatus.err, ApiStatus.msg.get(ApiStatus.err), null);
