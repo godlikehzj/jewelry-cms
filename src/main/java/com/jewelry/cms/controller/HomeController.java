@@ -80,6 +80,7 @@ public class HomeController {
             }else{
                 banner.setPindex(1);
             }
+            banner.setStatus(1);
             bannerRepository.save(banner);
         }catch (Exception e){
             e.printStackTrace();
