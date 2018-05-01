@@ -86,7 +86,7 @@ public class CommodityController {
 
     @RequestMapping(value = "commodity/doAdd")
     @ResponseBody
-    public Response addCommodity(Commodity commodity, String detail_img, String list_img){
+    public Response addCommodity(Commodity commodity, String detail_img, String list_img, String qrcode_img){
         Response response = new Response(ApiStatus.ok, ApiStatus.msg.get(ApiStatus.ok), null);;
         try{
             commodity.setCreateTime(new Timestamp(new Date().getTime()));
@@ -108,6 +108,16 @@ public class CommodityController {
                 cPicture.setCommodityId(commodity.getId());
                 cPicture.setPicName(img);
                 cPicture.setPositionType(0);
+                cPictureRespository.save(cPicture);
+            }
+
+            JSONArray qrcodes = JSONArray.parseArray(qrcode_img);
+            for(int i = 0;i<qrcodes.size(); i++){
+                String img = qrcodes.getString(0);
+                CPicture cPicture = new CPicture();
+                cPicture.setCommodityId(commodity.getId());
+                cPicture.setPicName(img);
+                cPicture.setPositionType(2);
                 cPictureRespository.save(cPicture);
             }
         }catch (Exception e){
@@ -141,12 +151,15 @@ public class CommodityController {
         List<CPicture> detail_imgs = cPictureRespository.findAllByCommodityIdAndPositionType(commodityId, 1);
         model.addAttribute("detail_img", detail_imgs);
 
+        List<CPicture> qrcode_imgs = cPictureRespository.findAllByCommodityIdAndPositionType(commodityId, 2);
+        model.addAttribute("qrcode_img", qrcode_imgs);
+
         return "commodity/modify";
     }
 
     @RequestMapping(value = "commodity/doModify")
     @ResponseBody
-    public Response modifyCommodity(Commodity commodity, String detail_img, String list_img){
+    public Response modifyCommodity(Commodity commodity, String detail_img, String list_img, String qrcode_img){
         Response response = new Response(ApiStatus.ok, ApiStatus.msg.get(ApiStatus.ok), null);;
         try{
             commodity.setModifyTime(new Timestamp(new Date().getTime()));
@@ -176,6 +189,20 @@ public class CommodityController {
                     cPictureRespository.save(cPicture);
                 }
             }
+
+            JSONArray qrcodes = JSONArray.parseArray(qrcode_img);
+            for(int i = 0;i<qrcodes.size(); i++){
+                String img = qrcodes.getString(0);
+                List<CPicture> pic = cPictureRespository.findAllByPicName(img);
+                if (pic == null || pic.size() == 0) {
+                    CPicture cPicture = new CPicture();
+                    cPicture.setCommodityId(commodity.getId());
+                    cPicture.setPicName(img);
+                    cPicture.setPositionType(2);
+                    cPictureRespository.save(cPicture);
+                }
+            }
+
         }catch (Exception e){
             e.printStackTrace();
             response = new Response(ApiStatus.err, ApiStatus.msg.get(ApiStatus.err), null);

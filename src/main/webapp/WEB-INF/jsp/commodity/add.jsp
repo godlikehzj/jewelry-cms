@@ -138,6 +138,16 @@
                                 <input id="detail-pic" type="file" multiple>
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label for="detail-pic" class="control-label col-md-3 col-sm-3 col-xs-12">二维码图片</label>
+                            <!--<div class="file-loading col-md-6 col-sm-6 col-xs-12">-->
+                            <!--<input id="input-24" name="input24[]" type="file" multiple>-->
+                            <!--</div>-->
+                            <div class=" col-md-6 col-sm-6 col-xs-12">
+                                <input id="qrcode-pic" type="file" multiple>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="editor" class="control-label col-md-3 col-sm-3 col-xs-12">文字描述:</label>
                             <div id="editor" class="col-md-8 col-sm-8 col-xs-12">
@@ -256,6 +266,18 @@
         initialPreviewConfig: []
     });
 
+    $("#qrcode-pic").fileinput({
+        theme: 'fa',
+        uploadUrl: img_upload_url,
+        deleteUrl: img_delete_url,
+        overwriteInitial: false,
+        // showPreview: false,
+        initialPreviewAsData: true,
+        maxFileCount:1,
+        initialPreview: [],
+        initialPreviewConfig: []
+    });
+
     var E = window.wangEditor;
     var editor = new E('#editor');
     editor.customConfig.uploadImgServer = rich_upload_url;
@@ -299,6 +321,12 @@
             list_img.push($("#list-pic").fileinput("getPreview").config[i].caption);
         }
         param.list_img = JSON.stringify(list_img);
+
+        var qrcode_img = [];
+        for(var i = 0; i < $("#qrcode-pic").fileinput("getPreview").config.length; i ++){
+            qrcode_img.push($("#qrcode-pic").fileinput("getPreview").config[i].caption);
+        }
+        param.qrcode_img = JSON.stringify(qrcode_img);
 
         commodity.add(param);
     }
