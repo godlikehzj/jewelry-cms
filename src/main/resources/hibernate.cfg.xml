@@ -6,9 +6,9 @@
     <session-factory>
         <!-- Database connection settings -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://120.27.15.2:3306/jewelry?autoReconnect=true&useSSL=false&characterEncoding=utf-8</property>
+        <property name="connection.url">jdbc:mysql://47.93.40.166:3307/jewelry?autoReconnect=true&useSSL=false&characterEncoding=utf-8</property>
         <property name="connection.username">root</property>
-        <property name="connection.password">yy123456</property>
+        <property name="connection.password">zhuwang</property>
         <!-- JDBC connection pool (use the built-in) -->
         <!--
         <property name="connection.pool_size">1</property>
